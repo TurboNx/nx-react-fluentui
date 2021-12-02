@@ -1,9 +1,23 @@
 import React from 'react';
-import { Navigate, useLocation} from 'react-router-dom'; // A wrapper for <Route> that redirects to the login
+import { Navigate, useLocation, useRoutes} from 'react-router-dom'; // A wrapper for <Route> that redirects to the login
 import {BasicLayout} from "@baas-fe/shared/ui";
 import {useSelector} from "react-redux";
 import { RootState } from '../state';
-
+import { INavLinkGroup } from '@fluentui/react/lib/Nav';
+// adding an empty title string to each link removes the tooltip;
+// it's unnecessary now that the text wraps, and will not truncat;
+const navLinkGroups: INavLinkGroup[] = [
+  {
+    name: 'Dashboard',
+    links: [
+      {
+        key: 'Home',
+        name: 'Home',
+        url: '/dashboard',
+      },
+    ],
+  },
+];
 export const PrivateAuth: React.FC<({children: JSX.Element})> = ({children})=> {
   const account = useSelector(({ account }: RootState) => account);
 
@@ -14,11 +28,10 @@ export const PrivateAuth: React.FC<({children: JSX.Element})> = ({children})=> {
 
   return children;
 }
-
-export const PrivateRoute = () => {
+export const PrivateRoute = (props) => {
   return (
     <PrivateAuth>
-      <BasicLayout/>
+      <BasicLayout navLinkGroups={navLinkGroups}/>
     </PrivateAuth>
   )
 }

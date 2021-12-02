@@ -8,7 +8,13 @@ function CustomRoute() {
   return (
     useRoutes([{
       path: '/',
-      element: <PrivateRoute/>
+      element: <PrivateRoute/>,
+      children: [
+        {
+          path: '/tt',
+          element:<> <div className="text-4xl">111</div><div className="text-[40px]">111</div></>
+        }
+      ]
     },
       {
         path: '/404',

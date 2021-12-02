@@ -2,7 +2,7 @@ import React from 'react';
 function NotFound() {
   return (
     <div>
-      <div className="bg-gradient-to-r from-green-400 to-blue-500 text-white min-h-screen flex items-center">
+      <div className="bg-gradient-to-r from-green-400 to-blue-500 min-h-screen flex items-center">
         <div className="container mx-auto p-4 flex flex-wrap items-center">
           <div className="w-full md:w-5/12 text-center p-4">
             <img
